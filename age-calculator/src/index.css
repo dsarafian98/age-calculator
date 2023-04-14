@@ -1,13 +1,44 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "regular";
+  background-color: #f0f0f0;
+}
+
+@font-face {
+  font-family: "regular";
+  src: local("Poppins-Regular"),
+    url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "bold";
+  src: local("Poppins-Bold"),
+    url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "bolditalic";
+  src: local("Poppins-BoldItalic"),
+    url("./assets/fonts/Poppins-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "italic";
+  src: local("Poppins-Italic"),
+    url("./assets/fonts/Poppins-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "extrabold";
+  src: local("Poppins-ExtraBold"),
+    url("./assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "extrabolditalic";
+  src: local("Poppins-ExtraBoldItalic"),
+    url("./assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "regular";
 }
