@@ -2,7 +2,7 @@ import React from "react";
 import "./FormSection.css";
 import { TextField } from "@material-ui/core";
 
-const FormSection = () => {
+const FormSection = ({ day, setDay, month, setMonth, year, setYear }) => {
   return (
     <div>
       <TextField
@@ -10,6 +10,7 @@ const FormSection = () => {
         id="outlined-basic"
         variant="outlined"
         placeholder="DD"
+        value={day}
         InputLabelProps={{
           shrink: true,
         }}
@@ -19,6 +20,7 @@ const FormSection = () => {
         id="outlined-basic"
         variant="outlined"
         placeholder="MM"
+        value={month}
         InputLabelProps={{
           shrink: true,
         }}
@@ -28,6 +30,7 @@ const FormSection = () => {
         id="outlined-basic"
         variant="outlined"
         placeholder="YYYY"
+        value={year}
         InputLabelProps={{
           shrink: true,
         }}
