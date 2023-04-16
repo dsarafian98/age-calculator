@@ -1,16 +1,32 @@
-import { Divider } from "@material-ui/core";
+import { Divider, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import FormSection from "../formSection/FormSection";
 import SectionDivider from "../SectionDivider/SectionDivider";
 import "./Box.css";
+
+const useStyles = makeStyles((theme) => {
+  return {
+    contentBox: {
+      padding: "40px",
+      flexDirection: "column",
+      display: "flex",
+      height: "500px",
+      width: "800px",
+      backgroundColor: "white",
+      borderRadius: "20px 20px 150px 20px",
+    },
+  };
+});
 
 const Box = () => {
   const [year, setYear] = useState(undefined);
   const [month, setMonth] = useState(undefined);
   const [day, setDay] = useState(undefined);
 
+  const styles = useStyles();
+
   return (
-    <div className="content-box">
+    <div className={styles.contentBox}>
       <FormSection
         year={year}
         month={month}
