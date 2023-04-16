@@ -2,7 +2,6 @@ import { Divider, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import FormSection from "../formSection/FormSection";
 import SectionDivider from "../SectionDivider/SectionDivider";
-import "./Box.css";
 
 const useStyles = makeStyles((theme) => {
   return {
