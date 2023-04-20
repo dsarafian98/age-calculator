@@ -17,6 +17,17 @@ const useStyles = makeStyles(() => {
 
 const FormSection = ({ day, setDay, month, setMonth, year, setYear }) => {
   const styles = useStyles();
+  console.log(day);
+
+  const onDayChange = (event) => {
+    setDay(event.target.value);
+  };
+  const onMonthChange = (event) => {
+    setMonth(event.target.value);
+  };
+  const onYearChange = (event) => {
+    setYear(event.target.value);
+  };
 
   return (
     <Container>
@@ -27,6 +38,7 @@ const FormSection = ({ day, setDay, month, setMonth, year, setYear }) => {
         variant="outlined"
         placeholder="DD"
         value={day}
+        onChange={onDayChange}
         InputLabelProps={{
           shrink: true,
         }}
@@ -38,6 +50,7 @@ const FormSection = ({ day, setDay, month, setMonth, year, setYear }) => {
         variant="outlined"
         placeholder="MM"
         value={month}
+        onChange={onMonthChange}
         InputLabelProps={{
           shrink: true,
         }}
@@ -49,6 +62,7 @@ const FormSection = ({ day, setDay, month, setMonth, year, setYear }) => {
         variant="outlined"
         placeholder="YYYY"
         value={year}
+        onChange={onYearChange}
         InputLabelProps={{
           shrink: true,
         }}

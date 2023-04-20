@@ -6,7 +6,7 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -30,14 +30,45 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-function SectionDivider() {
+function SectionDivider({
+  day,
+  setDaysAway,
+  month,
+  setMonthsAway,
+  year,
+  setYearsAway,
+}) {
   const buttonImage = "/images/icon-arrow.svg";
   const classes = useStyles();
+
+  const timeAway = () => {
+    const today = new Date().getTime();
+    const targetDate = new Date(year, month, day).getTime();
+
+    console.log(targetDate);
+
+    if (today >= targetDate) {
+      const difference = new Date(today - targetDate);
+      setYearsAway(difference.getFullYear() - 1970);
+      setMonthsAway(difference.getMonth() + 1);
+      setDaysAway(difference.getDate());
+    } else {
+      const difference = new Date(targetDate - today);
+      setYearsAway(difference.getFullYear());
+      setMonthsAway(difference.getMonth() + 1);
+      setDaysAway(difference.getDate());
+    }
+  };
 
   return (
     <Container className={classes.row}>
       <Divider className={classes.divider} component="div" flexItem></Divider>
-      <IconButton className={classes.button} edge="false" variant="filled">
+      <IconButton
+        className={classes.button}
+        edge="false"
+        variant="filled"
+        onClick={timeAway}
+      >
         <img alt="arrow" src={"" + buttonImage}></img>
       </IconButton>
     </Container>

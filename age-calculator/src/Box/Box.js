@@ -1,6 +1,7 @@
 import { Divider, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import FormSection from "../formSection/FormSection";
+import FormSection from "../FormSection/FormSection";
+import ResultsSection from "../ResultsSection/ResultsSection";
 import SectionDivider from "../SectionDivider/SectionDivider";
 
 const useStyles = makeStyles((theme) => {
@@ -22,6 +23,10 @@ const Box = () => {
   const [month, setMonth] = useState(undefined);
   const [day, setDay] = useState(undefined);
 
+  const [daysAway, setDaysAway] = useState(undefined);
+  const [monthsAway, setMonthsAway] = useState(undefined);
+  const [yearsAway, setYearsAway] = useState(undefined);
+
   const styles = useStyles();
 
   return (
@@ -34,7 +39,19 @@ const Box = () => {
         setMonth={setMonth}
         setYear={setYear}
       ></FormSection>
-      <SectionDivider />
+      <SectionDivider
+        year={year}
+        setYearsAway={setYearsAway}
+        month={month}
+        setMonthsAway={setMonthsAway}
+        day={day}
+        setDaysAway={setDaysAway}
+      ></SectionDivider>
+      <ResultsSection
+        daysAway={daysAway}
+        monthsAway={monthsAway}
+        yearsAway={yearsAway}
+      ></ResultsSection>
     </div>
   );
 };
