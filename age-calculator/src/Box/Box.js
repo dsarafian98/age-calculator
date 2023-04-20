@@ -27,6 +27,10 @@ const Box = () => {
   const [monthsAway, setMonthsAway] = useState(undefined);
   const [yearsAway, setYearsAway] = useState(undefined);
 
+  const [dayErrorText, setDayErrorText] = useState("");
+  const [monthErrorText, setMonthErrorText] = useState("");
+  const [yearErrorText, setYearErrorText] = useState("");
+
   const styles = useStyles();
 
   return (
@@ -38,6 +42,12 @@ const Box = () => {
         setDay={setDay}
         setMonth={setMonth}
         setYear={setYear}
+        dayErrorText={dayErrorText}
+        setDayErrorText={setDayErrorText}
+        monthErrorText={monthErrorText}
+        setMonthErrorText={setMonthErrorText}
+        yearErrorText={yearErrorText}
+        setYearErrorText={setYearErrorText}
       ></FormSection>
       <SectionDivider
         year={year}
@@ -46,6 +56,9 @@ const Box = () => {
         setMonthsAway={setMonthsAway}
         day={day}
         setDaysAway={setDaysAway}
+        dayErrorText={dayErrorText}
+        monthErrorText={monthErrorText}
+        yearErrorText={yearErrorText}
       ></SectionDivider>
       <ResultsSection
         daysAway={daysAway}

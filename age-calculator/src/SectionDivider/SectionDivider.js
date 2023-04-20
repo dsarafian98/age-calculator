@@ -37,26 +37,33 @@ function SectionDivider({
   setMonthsAway,
   year,
   setYearsAway,
+  dayErrorText,
+  monthErrorText,
+  yearErrorText,
 }) {
   const buttonImage = "/images/icon-arrow.svg";
   const classes = useStyles();
 
   const timeAway = () => {
-    const today = new Date().getTime();
-    const targetDate = new Date(year, month, day).getTime();
+    if (dayErrorText == "" && monthErrorText == "" && yearErrorText == "") {
+      const today = new Date().getTime();
+      const targetDate = new Date(year, month, day).getTime();
 
-    console.log(targetDate);
+      console.log(targetDate);
 
-    if (today >= targetDate) {
-      const difference = new Date(today - targetDate);
-      setYearsAway(difference.getFullYear() - 1970);
-      setMonthsAway(difference.getMonth() + 1);
-      setDaysAway(difference.getDate());
+      if (today >= targetDate) {
+        const difference = new Date(today - targetDate);
+        setYearsAway(difference.getFullYear() - 1970);
+        setMonthsAway(difference.getMonth() + 1);
+        setDaysAway(difference.getDate());
+      } else {
+        const difference = new Date(targetDate - today);
+        setYearsAway(difference.getFullYear());
+        setMonthsAway(difference.getMonth() + 1);
+        setDaysAway(difference.getDate());
+      }
     } else {
-      const difference = new Date(targetDate - today);
-      setYearsAway(difference.getFullYear());
-      setMonthsAway(difference.getMonth() + 1);
-      setDaysAway(difference.getDate());
+      return;
     }
   };
 
